@@ -1,0 +1,9 @@
+[Unit]
+Description=Collect unattended-upgrades metrics for Prometheus
+
+[Timer]
+OnBootSec=1h
+OnUnitActiveSec=10s
+
+[Install]
+WantedBy=timers.target

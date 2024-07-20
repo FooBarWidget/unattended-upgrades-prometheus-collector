@@ -1,0 +1,7 @@
+[Unit]
+Description=Collect unattended-upgrades metrics for Prometheus
+ConditionACPower=true
+
+[Service]
+Type=oneshot
+ExecStart=/usr/share/unattended-upgrades-prometheus-collector/timer.py

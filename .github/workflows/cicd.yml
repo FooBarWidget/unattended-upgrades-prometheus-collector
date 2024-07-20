@@ -1,0 +1,37 @@
+name: CI/CD
+
+on:
+  push: {}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Ruby 3.3
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.3
+
+      - name: Install venv
+        run: python3 -m venv venv
+
+      - name: Install autopep8
+        run: ./venv/bin/pip install autopep8
+
+      - name: Check formatting
+        run: ./venv/bin/autopep8 --diff --exit-code *.py
+
+      - name: Install fpm
+        run: gem install fpm --no-document
+
+      - name: Build Debian package
+        run: ./scripts/package.sh
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unattended-upgrades-prometheus-collector.deb
+          path: "*.deb"
+          compression-level: 0
