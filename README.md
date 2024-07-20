@@ -20,14 +20,14 @@ This program is meant to be used in combination with the Prometheus node exporte
 
 ## Installation
 
-Download the .deb file from the Releases section and install it. The package is distribution- and platform-independent.
+Download the .deb file from the [Releases section](https://github.com/FooBarWidget/unattended-upgrades-prometheus-collector/releases) and install it. The package is distribution- and platform-independent.
 
-Ansible:
+Ansible example (be sure to update the URL according to latest release):
 
 ```yaml
 - name: Install unattended-upgrades-prometheus-collector
   apt:
-    deb: ...
+    deb: https://github.com/FooBarWidget/unattended-upgrades-prometheus-collector/releases/download/v1.0.0/unattended-upgrades-prometheus-collector_1.0.0_all.deb
 ```
 
 ## Metrics
