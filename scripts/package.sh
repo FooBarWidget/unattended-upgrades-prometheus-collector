@@ -7,6 +7,7 @@ exec fpm \
     -t deb \
     -n unattended-upgrades-prometheus-collector \
     -v 1.0.0 \
+    --license MIT \
     --architecture all \
     --depends python3-minimal \
     --description 'Prometheus node collector for unattended-upgrades' \
